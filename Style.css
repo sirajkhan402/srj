@@ -1,0 +1,296 @@
+/* ==========================================================
+   Butt Karahi Hotel SAR - Animated Theme
+   File name: style.css  (matches <link rel="stylesheet" href="style.css">)
+   ========================================================== */
+
+/* ---------- Variables ---------- */
+:root {
+  --gold: #ffd700;
+  --orange: #ff7a18;
+  --red: #e63946;
+  --green: #00a859;
+  --cream: #fff4e0;
+  --dark: #1a0a05;
+}
+
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Body: animated warm gradient ---------- */
+body {
+  font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
+  color: var(--cream);
+  line-height: 1.7;
+  padding: 40px 6% 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(-45deg, #1a0a05, #5c1a0b, #b3370f, #3a0d2e, #0b3d2e);
+  background-size: 400% 400%;
+  animation: bgFlow 18s ease infinite;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes bgFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shine {
+  to { background-position: 250% center; }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 6px var(--orange), 0 0 18px var(--orange); }
+  50%      { text-shadow: 0 0 10px var(--gold), 0 0 30px var(--gold), 0 0 50px var(--red); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 122, 24, 0.6), 0 15px 40px rgba(0, 0, 0, 0.45); }
+  50%      { box-shadow: 0 0 0 14px rgba(255, 122, 24, 0), 0 15px 40px rgba(0, 0, 0, 0.45); }
+}
+
+@keyframes footerFlow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ---------- Headings ---------- */
+h1 {
+  text-align: center;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #ffd700, #ff7a18, #ff3c3c, #ffd700);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeUp 1s ease both, shine 4s linear infinite;
+}
+
+/* First h2 = tagline, second = tradition line */
+h2 {
+  text-align: center;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: var(--gold);
+  margin: 10px 0;
+  animation: fadeUp 1s ease both, glow 3s ease-in-out infinite;
+}
+
+h2:nth-of-type(2) {
+  color: #7dffb3;
+  animation-delay: 0.2s, 0s;
+}
+
+/* Section titles (Menu, BBQ) get an underline accent */
+h2:nth-of-type(n+3) {
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 25px;
+  color: var(--orange);
+}
+
+h2:nth-of-type(n+3)::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--red));
+}
+
+h4 {
+  font-weight: 500;
+  color: var(--cream);
+}
+
+/* Section sub-heading like "1 Signature Karahi Special" */
+body > h4 {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ff9ecb;
+  margin: 20px 0 10px;
+}
+
+/* ---------- Welcome paragraph (<pr> tag) ---------- */
+pr {
+  display: block;
+  max-width: 850px;
+  margin: 30px auto;
+  padding: 28px 32px;
+  font-size: 1.05rem;
+  text-align: center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  animation: fadeUp 1.2s 0.3s ease both, pulseBorder 3s ease-in-out infinite;
+}
+
+/* ---------- Lists ---------- */
+ol {
+  list-style: none;
+  max-width: 750px;
+  margin: 25px auto;
+}
+
+ol li {
+  display: block;
+  padding: 14px 22px;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  border-radius: 14px;
+  border-left: 5px solid var(--orange);
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  animation: slideIn 0.8s ease both;
+}
+
+ol li:nth-child(1) { animation-delay: 0.1s; }
+ol li:nth-child(2) { animation-delay: 0.2s; }
+ol li:nth-child(3) { animation-delay: 0.3s; }
+ol li:nth-child(4) { animation-delay: 0.4s; }
+ol li:nth-child(5) { animation-delay: 0.5s; }
+ol li:nth-child(6) { animation-delay: 0.6s; }
+ol li:nth-child(7) { animation-delay: 0.7s; }
+ol li:nth-child(8) { animation-delay: 0.8s; }
+ol li:nth-child(9) { animation-delay: 0.9s; }
+
+ol li:hover {
+  transform: translateX(14px) scale(1.03);
+  background: linear-gradient(90deg, rgba(255, 122, 24, 0.55), rgba(230, 57, 70, 0.55));
+  border-left-color: var(--gold);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- Images ---------- */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 22px;
+  border: 4px solid var(--gold);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  animation: fadeUp 1s ease both, floatY 5s ease-in-out infinite;
+  transition: transform 0.5s ease, filter 0.5s ease, border-color 0.5s ease;
+}
+
+img:hover {
+  transform: scale(1.07) rotate(-1.5deg);
+  filter: saturate(1.35) brightness(1.08);
+  border-color: var(--orange);
+}
+
+/* ---------- Footer (green, animated) ---------- */
+footer {
+  margin: 70px -6% 0;
+  padding: 40px 6%;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(90deg, #00a859, #0b6e4f, #00d27a, #0b6e4f, #00a859);
+  background-size: 200% 100%;
+  animation: footerFlow 6s linear infinite;
+  border-top: 5px solid var(--gold);
+  box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.4);
+}
+
+footer h4 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+footer h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  white-space: pre-line;
+}
+
+/* ---------- Custom cursor (needs script.js) ---------- */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, width 0.25s ease, height 0.25s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+}
+
+.cursor-outline {
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--orange);
+}
+
+.cursor-dot.active,
+.cursor-outline.active {
+  opacity: 1;
+}
+
+.cursor-outline.hover {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 122, 24, 0.2);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  body { padding: 25px 5% 0; }
+  pr { padding: 20px; }
+  ol li { font-size: 0.95rem; padding: 12px 16px; }
+  footer { margin: 50px -5% 0; }
+  .cursor-dot, .cursor-outline { display: none; }
+}
+
+/* ---------- Reduce motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
